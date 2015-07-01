@@ -1,6 +1,6 @@
 # Parvus HTML Table
 
-Create html tables for Datables with Bootstrap 3.
+Create HTML tables for Datables with Bootstrap 3.
 
             $table = new \Parvus\HTMLTable();
 
