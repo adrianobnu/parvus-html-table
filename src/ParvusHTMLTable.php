@@ -5,7 +5,7 @@
     define ('TABLE_ALIGN_LEFT','left');
     define ('TABLE_ALIGN_RIGHT','right');
 
-    class Table
+    class HTMLTable
     {
 
         private $htmlTbody = NULL, $htmlThead = NULL, $htmlFilter = NULL;
