@@ -4,6 +4,19 @@
   "keywords": ["jquery", "datables", "table"],
   "license": "MIT",
   "require": {
+    "php" : ">=5.3",
     "adrianobnu/parvus-framework": "dev-master"
+  },
+  "autoload": {
+    "psr-0": {
+      "": "src/"
+    },
+    "psr-4": {
+      "Parvus\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "config": {
+    "preferred-install": "dist"
   }
 }
