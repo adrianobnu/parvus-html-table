@@ -75,7 +75,7 @@
         public final function button ($prLabel,$prURL)
         {
 
-            return '<a href="'.$prURL.'" class="btn btn-default">'.$prLabel.'</a>';
+            return '<a href="'.$prURL.'" class="btn btn-default btn-xs">'.$prLabel.'</a>';
 
         }
 
