@@ -48,14 +48,15 @@
 
         /**
          * Add a <td>
+         * @param $prArrayItem
          * @param $prArray
          */
-        public final function td ($prArray)
+        public final function td ($prArrayItem,$prArray = NULL)
         {
 
-            $this->htmlTbody .= '<tr>';
+            $this->htmlTbody .= '<tr '.$this->attribute($prArray).'>';
 
-                foreach ($prArray as $ordem => $value)
+                foreach ($prArrayItem as $ordem => $value)
                 {
 
                     $this->htmlTbody .= '<td align="'.$this->aTh[$ordem]['align'].'">'.$value.'</td>';
@@ -72,10 +73,10 @@
          * @param $prURL
          * @return string
          */
-        public final function button ($prLabel,$prURL)
+        public final function button ($prLabel,$prURL,$prArray = NULL)
         {
 
-            return '<a href="'.$prURL.'" class="btn btn-default btn-xs">'.$prLabel.'</a>';
+            return '<a href="'.$prURL.'" class="btn btn-default btn-xs" '.$this->attribute($prArray).'>'.$prLabel.'</a>';
 
         }
 
@@ -83,10 +84,10 @@
          * Return the HTML
          * @return string
          */
-        public final function html ()
+        public final function html ($prArray = NULL)
         {
 
-            $html = '<table class="grid table table-bordered table-hover table-striped">';
+            $html = '<table class="grid table table-bordered table-hover table-striped" '.$this->attribute($prArray).'>';
 
                 if ($this->htmlThead != NULL)
                 {
@@ -124,6 +125,24 @@
 
             return $html;
 
+        }
+
+        /**
+         * @param $prArray
+         * @return null|string
+         */
+        private final function attribute ($prArray)
+        {
+            $return = NULL;
+
+            foreach (array_filter($prArray) as $label => $value)
+            {
+
+                $return .= $label.'="'.$value.'" ';
+
+            }
+
+            return $return;
         }
 
     }
