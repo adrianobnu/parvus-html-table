@@ -10,6 +10,29 @@
 
         private $htmlTbody = NULL, $htmlThead = NULL, $htmlFilter = NULL;
         private $aTh = array();
+        private $hasDataTable = true;
+        private $tableClass = 'table table-bordered table-hover table-striped';
+
+        /**
+         * Override the default table class
+         * @param $prValue
+         */
+        public final function setTableClass ($prValue)
+        {
+
+            $this->tableClass = $prValue;
+
+        }
+
+        /**
+         * Define to not use DataTables in the table
+         */
+        public final function setNoDataTable ()
+        {
+
+            $this->hasDataTable = false;
+
+        }
 
         /**
          * Add a <th>
@@ -87,7 +110,7 @@
         public final function html ($prArray = NULL)
         {
 
-            $html = '<table class="grid table table-bordered table-hover table-striped" '.$this->attribute($prArray).'>';
+            $html = '<table class="'.($this->hasDataTable ? 'grid' : NULL).' '.$this->tableClass.'" '.$this->attribute($prArray).'>';
 
                 if ($this->htmlThead != NULL)
                 {
