@@ -51,17 +51,21 @@
 
             $this->htmlThead .= '</th>';
 
+            if ($this->hasDataTable)
+            {
 
-            $this->htmlFilter .= '<td align="center">';
+                $this->htmlFilter .= '<td align="center">';
 
-                if ($prSort)
-                {
+                    if ($prSort)
+                    {
 
-                    $this->htmlFilter .= '<input ordem="'.sizeOf($this->aTh).'" type="text" autocomplete="off" class="form-control input-sm '.$prMask.'" />';
+                        $this->htmlFilter .= '<input ordem="'.sizeOf($this->aTh).'" type="text" autocomplete="off" class="form-control input-sm '.$prMask.'" />';
 
-                }
+                    }
 
-            $this->htmlFilter .= '</td>';
+                $this->htmlFilter .= '</td>';
+
+            }
 
             array_push($this->aTh, array (
                 'align' => $prAlign
@@ -123,11 +127,16 @@
 
                         $html.= '</tr>';
 
-                        $html.= '<tr class="filter">';
+                        if ($this->hasDataTable)
+                        {
 
-                            $html .= $this->htmlFilter;
+                            $html.= '<tr class="filter">';
 
-                        $html.= '</tr>';
+                                $html .= $this->htmlFilter;
+
+                            $html.= '</tr>';
+
+                        }
 
                     $html.= '</thead>';
 
