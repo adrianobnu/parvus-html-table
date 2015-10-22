@@ -2,28 +2,28 @@
 
 Create HTML tables for Datables with Bootstrap 3.
 
-            $table = new \Parvus\HTMLTable();
-
-            $table->th('Nome');
-            $table->th('E-mail');
-            $table->th('Celular',115,TABLE_ALIGN_CENTER,'telefone');
-            $table->th('Telefone',115,TABLE_ALIGN_CENTER,'telefone');
-            $table->th('Ação',100,TABLE_ALIGN_CENTER,NULL,false);
-
-            foreach (\Model\Usuario::orderby('nome')->get() as $item)
-            {
-
-                $table->td(array (
-                    $item->nome,
-                    $item->email,
-                    $item->celular,
-                    $item->telefone,
-                    $table->button('Editar','usuario/form?id='.$item->id)
-                ));
-
-            }
-            
-            print ($table->html());
+    $table = new \Parvus\HTMLTable();
+    
+    $table->th('Nome');
+    $table->th('E-mail');
+    $table->th('Celular',115,TABLE_ALIGN_CENTER,'telefone');
+    $table->th('Telefone',115,TABLE_ALIGN_CENTER,'telefone');
+    $table->th('Ação',100,TABLE_ALIGN_CENTER,NULL,false);
+    
+    foreach (\Model\Usuario::orderby('nome')->get() as $item)
+    {
+    
+        $table->td(array (
+            $item->nome,
+            $item->email,
+            $item->celular,
+            $item->telefone,
+            $table->button('Editar','usuario/form?id='.$item->id)
+        ));
+    
+    }
+    
+    print ($table->html());
 
 Javascript for Datables
             
@@ -36,7 +36,7 @@ Javascript for Datables
         grid.each (function ()
         {
 
-            $(this).DataTable({
+            var table = $(this).DataTable({
                 "retrieve"      : true,
                 "bRetrieve"     : true,
                 destroy: true,
@@ -71,7 +71,7 @@ Javascript for Datables
                 }
             });
 
-            $(this).find('thead input,thead select').on('keyup change', function ()
+            $(this).find('input,select').on('keyup change', function ()
             {
 
                 table.column($(this).attr('ordem')).search(this.value).draw();
