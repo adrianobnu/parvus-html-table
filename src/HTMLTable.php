@@ -9,7 +9,8 @@
     {
 
         private $htmlTbody = NULL, $htmlThead = NULL, $htmlFilter = NULL;
-        private $aTh = array();
+        private $aHeader = array();
+        private $aFooter = array();
         private $hasDataTable = true;
         private $tableClass = 'table table-bordered table-hover table-striped';
 
@@ -59,7 +60,7 @@
                     if ($prSort)
                     {
 
-                        $this->htmlFilter .= '<input ordem="'.sizeOf($this->aTh).'" type="text" autocomplete="off" class="form-control input-sm '.$prMask.'" />';
+                        $this->htmlFilter .= '<input ordem="'.sizeOf($this->aHeader).'" type="text" autocomplete="off" class="form-control input-sm '.$prMask.'" />';
 
                     }
 
@@ -67,9 +68,22 @@
 
             }
 
-            array_push($this->aTh, array (
+            array_push($this->aHeader, array (
+                'label' => $prLabel,
                 'align' => $prAlign
             ));
+
+        }
+
+        /**
+         * Add a <th> in foot
+         * @param $prLabel
+         * @param $prValue
+         */
+        public final function tfoot ($prLabel,$prValue)
+        {
+
+            $this->aFooter[$prLabel] = $prValue;
 
         }
 
@@ -86,7 +100,7 @@
                 foreach ($prArrayItem as $ordem => $value)
                 {
 
-                    $this->htmlTbody .= '<td align="'.$this->aTh[$ordem]['align'].'">'.$value.'</td>';
+                    $this->htmlTbody .= '<td align="'.$this->aHeader[$ordem]['align'].'">'.$value.'</td>';
 
                 }
 
@@ -150,6 +164,31 @@
                         $html .= $this->htmlTbody;
 
                     $html.= '</tbody>';
+
+                }
+
+                if ($this->aFooter != NULL)
+                {
+
+                    $html.= '<tfoot>';
+
+                        foreach ($this->aHeader as $th)
+                        {
+
+                            if ($this->aFooter[$th['label']] != NULL)
+                            {
+
+                                $html.= '<th style="text-align: '.$th['align'].'">'.$this->aFooter[$th['label']].'</td>';
+
+                            }
+                            else
+                            {
+                                $html.= '<th></th>';
+                            }
+
+                        }
+
+                    $html.= '</tfoot>';
 
                 }
 
