@@ -133,8 +133,7 @@
                     }
                     else
                     {
-                        $label      = $item;
-                        $orderby    = $item;
+                        $label = $item;
                     }
 
                     $this->htmlTbody .= '<td align="'.$this->aHeader[$ordem]['align'].'" data-order="'.$orderby.'">'.$label.'</td>';
