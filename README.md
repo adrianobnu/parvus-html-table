@@ -4,6 +4,8 @@ Create HTML tables for Datables with Bootstrap 3.
 
     $table = new \Parvus\HTMLTable();
     
+    $table->orderby(array('Nome', 'Celular' => 'desc'))
+    
     $table->th('Nome');
     $table->th('E-mail');
     $table->th('Celular',115,TABLE_ALIGN_CENTER,'telefone');
@@ -16,68 +18,22 @@ Create HTML tables for Datables with Bootstrap 3.
         $table->td(array (
             $item->nome,
             $item->email,
-            $item->celular,
+            array (
+                'label' => '(44) 9999-9999',
+                'value' => '44999999'
+            ),
             $item->telefone,
             $table->button('Editar','usuario/form?id='.$item->id)
         ));
     
     }
     
-    print ($table->html());
-
-Javascript for Datables
-            
-    /** Grid**/
-    var grid = $('table.grid');
-
-    if (grid.length > 0)
-    {
-
-        grid.each (function ()
-        {
-
-            var table = $(this).DataTable({
-                "retrieve"      : true,
-                "bRetrieve"     : true,
-                destroy: true,
-                "responsive"    : true,
-                "bSortCellsTop" : true,
-                "columnDefs"    : [ {
-                    "targets"   : 'no-sort',
-                    "orderable" : false
-                }],
-                language        : {
-                    "sEmptyTable": "Nenhum registro encontrado",
-                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
-                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sInfoThousands": ".",
-                    "sLengthMenu": "Exibindo _MENU_ resultados por página",
-                    "sLoadingRecords": "Carregando...",
-                    "sProcessing": "Processando...",
-                    "sZeroRecords": "Nenhum registro encontrado",
-                    "sSearch": "Pesquisar em todos os campos:",
-                    "oPaginate": {
-                        "sNext": "Próximo",
-                        "sPrevious": "Anterior",
-                        "sFirst": "Primeiro",
-                        "sLast": "Último"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Ordenar colunas de forma ascendente",
-                        "sSortDescending": ": Ordenar colunas de forma descendente"
-                    }
-                }
-            });
-
-            $(this).find('input,select').on('keyup change', function ()
-            {
-
-                table.column($(this).attr('ordem')).search(this.value).draw();
-
-            });
-
-        });
-
-    }
+    $aHTML = $table->html();
+    
+    print ($aHTML['html']);
+    
+    <script>
+    
+        print ($aHTML['javascript']);
+    
+    </script>
