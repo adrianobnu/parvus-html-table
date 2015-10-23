@@ -129,14 +129,14 @@
                     if (is_array($item))
                     {
                         $label      = $item['label'];
-                        $orderby    = $item['value'];
+                        $orderby    = 'data-order="'.$item['value'].'"';
                     }
                     else
                     {
                         $label = $item;
                     }
 
-                    $this->htmlTbody .= '<td align="'.$this->aHeader[$ordem]['align'].'" data-order="'.$orderby.'">'.$label.'</td>';
+                    $this->htmlTbody .= '<td align="'.$this->aHeader[$ordem]['align'].'" '.$orderby.'>'.$label.'</td>';
 
                 }
 
