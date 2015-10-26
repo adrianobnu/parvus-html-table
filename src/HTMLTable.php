@@ -128,15 +128,16 @@
 
                     if (is_array($item))
                     {
-                        $label      = $item['label'];
-                        $orderby    = 'data-order="'.$item['value'].'"';
+                        $label   = $item['label'];
+                        $orderby = $item['value'];
                     }
                     else
                     {
-                        $label = $item;
+                        $label   = $item;
+                        $orderby = str_replace(' ',NULL,$item);
                     }
 
-                    $this->htmlTbody .= '<td align="'.$this->aHeader[$ordem]['align'].'" '.$orderby.'>'.$label.'</td>';
+                    $this->htmlTbody .= '<td align="'.$this->aHeader[$ordem]['align'].'" data-order="'.$orderby.'">'.$label.'</td>';
 
                 }
 
