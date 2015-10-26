@@ -134,7 +134,7 @@
                     else
                     {
                         $label   = $item;
-                        $orderby = str_replace(' ',NULL,$item);
+                        $orderby = str_replace(' ',NULL,strip_tags(trim($item)));
                     }
 
                     $this->htmlTbody .= '<td align="'.$this->aHeader[$ordem]['align'].'" data-order="'.$orderby.'">'.$label.'</td>';
