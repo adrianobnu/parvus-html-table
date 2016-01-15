@@ -274,7 +274,7 @@
                     }
                 });
 
-                $("#'.$prArray['id'].'").find("input[type=text],select").on("keyup change", function ()
+                $("#'.$prArray['id'].'").find("thead input[type=text],thead select").on("keyup change", function ()
                 {
 
                     table.column($(this).attr("ordem")).search(this.value).draw();
