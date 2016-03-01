@@ -317,7 +317,8 @@
 
             return array (
                 'html'          => $html,
-                'javascript'    => $javascript
+                'javascript'    => $javascript,
+                'id'            => $prArray['id']
             );
 
         }
