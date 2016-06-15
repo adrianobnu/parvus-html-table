@@ -108,7 +108,7 @@
                     if ($prSort)
                     {
 
-                        $this->htmlFilter .= '<input ordem="'.sizeof($this->aHeader).'" type="text" autocomplete="off" class="'.$this->inputClass.''.$prMask.'" />';
+                        $this->htmlFilter .= '<input ordem="'.sizeof($this->aHeader).'" type="text" autocomplete="off" class="'.$this->inputClass.' '.$prMask.'" />';
 
                     }
 
@@ -178,7 +178,7 @@
         public final function button ($prLabel,$prURL,$prArray = NULL)
         {
 
-            return '<a href="'.$prURL.'" class="'.$this->buttonClass.' '.$this->attribute($prArray).'>'.$prLabel.'</a>';
+            return '<a href="'.$prURL.'" class="'.$this->buttonClass.'" '.$this->attribute($prArray).'>'.$prLabel.'</a>';
 
         }
 
