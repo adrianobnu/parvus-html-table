@@ -13,6 +13,8 @@
         private $aFooter = array();
         private $hasDataTable = true;
         private $tableClass = 'table table-bordered table-hover table-striped';
+        private $buttonClass = 'btn btn-default btn-xs';
+        private $inputClass = 'form-control input-sm';
         private $aOrderby = array();
 
         /**
@@ -38,6 +40,17 @@
 
         }
 
+				/**
+         * Override the default input class
+         * @param $prValue
+         */
+        public final function setInputClass ($prValue)
+        {
+
+            $this->inputClass = $prValue;
+
+        }
+
         /**
          * Override the default table class
          * @param $prValue
@@ -46,6 +59,17 @@
         {
 
             $this->tableClass = $prValue;
+
+        }
+        
+        /**
+         * Override the default button class
+         * @param $prValue
+         */
+        public final function setButtonClass ($prValue)
+        {
+
+            $this->buttonClass = $prValue;
 
         }
 
@@ -84,7 +108,7 @@
                     if ($prSort)
                     {
 
-                        $this->htmlFilter .= '<input ordem="'.sizeOf($this->aHeader).'" type="text" autocomplete="off" class="form-control input-sm '.$prMask.'" />';
+                        $this->htmlFilter .= '<input ordem="'.sizeof($this->aHeader).'" type="text" autocomplete="off" class="'.$this->inputClass.''.$prMask.'" />';
 
                     }
 
@@ -154,7 +178,7 @@
         public final function button ($prLabel,$prURL,$prArray = NULL)
         {
 
-            return '<a href="'.$prURL.'" class="btn btn-default btn-xs" '.$this->attribute($prArray).'>'.$prLabel.'</a>';
+            return '<a href="'.$prURL.'" class="'.$this->buttonClass.' '.$this->attribute($prArray).'>'.$prLabel.'</a>';
 
         }
 
