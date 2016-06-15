@@ -266,7 +266,7 @@
                 var table = $("#'.$prArray['id'].'").DataTable({
                     "retrieve"      : true,
                     "bRetrieve"     : true,
-                    destroy: true,
+                    "destroy"	    : true,
                     "responsive"    : true,
                     "bSortCellsTop" : true,
                     "columnDefs"    : [ {
@@ -284,7 +284,7 @@
                         "sLoadingRecords": "Carregando...",
                         "sProcessing": "Processando...",
                         "sZeroRecords": "Nenhum registro encontrado",
-                        "sSearch": "Pesquisar em todos os campos:",
+                        "sSearch": "Pesquisar:",
                         "oPaginate": {
                             "sNext": "Próximo",
                             "sPrevious": "Anterior",
