@@ -17,6 +17,17 @@
         private $inputClass = 'form-control input-sm';
         private $aOrderby = array();
 
+				/**
+         * Return the headers
+         * @return array
+         */
+        public final function getHeader ()
+        {
+
+            return $this->aHeader;
+
+        }
+
         /**
          * Define the order of the columns
          * Ex: array ('col' => 'asc', 'col2' => 'desc')
