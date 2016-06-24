@@ -10,12 +10,24 @@
 
         private $htmlTbody = NULL, $htmlThead = NULL, $htmlFilter = NULL;
         private $aHeader = array();
+        private $aBody   = array();
         private $aFooter = array();
         private $hasDataTable = true;
         private $tableClass = 'table table-bordered table-hover table-striped';
         private $buttonClass = 'btn btn-default btn-xs';
         private $inputClass = 'form-control input-sm';
         private $aOrderby = array();
+
+				/**
+         * Return the body
+         * @return array
+         */
+        public final function getBody ()
+        {
+
+            return $this->aBody;
+
+        }
 
 				/**
          * Return the headers
@@ -154,6 +166,8 @@
         public final function td ($prArrayItem,$prArray = NULL)
         {
 
+						$aItem = array();
+
             $this->htmlTbody .= '<tr '.$this->attribute($prArray).'>';
 
                 foreach ($prArrayItem as $ordem => $item)
@@ -174,9 +188,13 @@
 
                     $this->htmlTbody .= '<td align="'.$this->aHeader[$ordem]['align'].'" data-order="'.$orderby.'">'.$label.'</td>';
 
+										array_push($aItem,$label);
+
                 }
 
             $this->htmlTbody .= '</tr>';
+
+						array_push($this->aBody,$aItem);
 
         }
 
