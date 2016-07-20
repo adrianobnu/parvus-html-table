@@ -370,7 +370,7 @@
 
             return array (
                 'html'          => $html,
-                'javascript'    => $javascript,
+                'javascript'    => $this->hasDataTable ? $javascript : NULL,
                 'id'            => $prArray['id']
             );
 
