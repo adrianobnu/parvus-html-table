@@ -293,10 +293,11 @@
             $javascript = '$(function() {
 
                 var table = $("#'.$prArray['id'].'").DataTable({
-										"lengthMenu": [ [10, 25, 50, 100, 300, 500, 700, 1000, 2000, -1], [10, 25, 50, 100, 300, 500, 700, 1000, 2000, "Tudo"] ],
+										"lengthMenu"		: [ [10, 25, 50, 100, 300, 500, 700, 1000, 2000, -1], [10, 25, 50, 100, 300, 500, 700, 1000, 2000, "Tudo"] ],
+										"pageLength"		: 100,
                     "retrieve"      : true,
                     "bRetrieve"     : true,
-                    "destroy"	    : true,
+                    "destroy"	    	: true,
                     "responsive"    : true,
                     "bSortCellsTop" : true,
                     "columnDefs"    : [ {
