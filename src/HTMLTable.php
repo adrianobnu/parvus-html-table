@@ -197,6 +197,16 @@
 						array_push($this->aBody,$aItem);
 
         }
+			
+				/**
+				 * Return the length of rows
+				 */
+				public final function getRowLength()
+				{
+				
+						return sizeof($this->aBody);
+					
+				}
 
         /**
          * Return a link button
