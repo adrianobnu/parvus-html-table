@@ -17,6 +17,7 @@
         private $buttonClass = 'btn btn-default btn-xs';
         private $inputClass = 'form-control input-sm';
         private $aOrderby = array();
+				private $ajaxURL = NULL;
 
 				/**
          * Return the body
@@ -60,6 +61,17 @@
                 $this->aOrderby[$label] = $value;
 
             }
+
+        }
+			
+				/**
+         * Set the ajax URL from data table
+         * @param $prURL
+         */
+        public final function setAjaxURL ($prURL)
+        {
+
+            $this->ajaxURL = $prURL;
 
         }
 
@@ -305,6 +317,7 @@
                 var table = $("#'.$prArray['id'].'").DataTable({
 										"lengthMenu"		: [ [10, 25, 50, 100, 300, 500, 700, 1000, 2000, -1], [10, 25, 50, 100, 300, 500, 700, 1000, 2000, "Tudo"] ],
 										"pageLength"		: 100,
+										'.($this->ajaxURL != NULL ? '"ajax" : "'.url.$this->ajaxURL.'",' : NULL).'
                     "retrieve"      : true,
                     "bRetrieve"     : true,
                     "destroy"	    	: true,
